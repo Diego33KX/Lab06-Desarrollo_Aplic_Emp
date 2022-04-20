@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="py-5">
+   <ul>
+      <li><h4 style="color:blue">Producto: {{ producto.nombre }}</h4></li>
+      <li><h4>Precio: s/. {{ producto.precio }}</h4></li>
+      <li><h4>Stock: {{producto.stock}}</h4></li>
+      <li><h4>Fecha de publicacion: {{producto.pub_date}}</h4></li>
+      <li><h4>Categoria: {{producto.categoria.nombre}}</h4></li>
+   </ul>
+</div>
+
+{% endblock %}
+{% block categoria %}
+<h1 class="my-4">Python shop</h1>
+          <div class="list-group">
+              {% for cat in categoria_list %}
+                 <a href="{% url 'tienda:categoria' cat.id %}" class="list-group-item">{{ cat.nombre }}</a>
+              {% endfor %}
+            </div><br>
+{% endblock %}
